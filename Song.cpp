@@ -48,38 +48,37 @@ int Song::getSize() const
     return size;
 }
 
-bool Song::operator==(const Song &b){
-    return (title== b.title &&
-            artist== b.artist &&
-            size == b.size);
+bool Song::operator==(const Song &s){
+    return (title== s.getTitle() &&
+            artist== s.getArtist() &&
+            size == s.getSize());
 }
 
-bool Song::operator<(const Song &b){
-    if (artist != b.artist){
-        return (artist < b.artist);
+bool Song::operator<(const Song &s){
+    if (artist != s.getArtist()){
+        return (artist < s.getArtist());
     }
-    else if (title != b.title){
-        return (title < b.title);
+    else if (title != s.getTitle()){
+        return (title < s.getTitle());
     }
-    else if (size != b.size){
-        return (size < b.size);
+    else if (size != s.getSize()){
+        return (size < s.getSize());
     }
     else {
         return false;
     }
 }
-bool Song::operator>(const Song &b){
-    if (artist != b.artist){
-        return (artist > b.artist);
+bool Song::operator>(const Song &s){
+    if (artist != s.getArtist()){
+        return (artist > s.getArtist());
     }
-    else if (title != b.title){
-        return (title > b.title);
+    else if (title != s.getTitle()){
+        return (title > s.getTitle());
     }
-    else if (size != b.size){
-        return (size > b.size);
+    else if (size != s.getSize()){
+        return (size > s.getSize());
     }
     else {
         return false;
     }
-
 }
