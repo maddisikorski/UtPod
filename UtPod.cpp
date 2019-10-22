@@ -113,12 +113,20 @@ void UtPod::sortSongList(){
 /* FUNCTION - void clearMemory
  * clears all the songs from memory
 
-   input parms -
+   input parms -none
 
-   output parms -
+   output parms -none
 */
 void UtPod::clearMemory(){
-
+    SongNode *current = songs;
+    SongNode *next;
+    
+    while (current != nullptr){
+        next = current->next;
+        free(current);
+        current = next;
+    }
+    songs = nullptr;
 }
 
 
