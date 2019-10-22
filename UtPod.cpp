@@ -8,6 +8,7 @@ using namespace std;
 //Default constructor
 //set the memory size to MAX_MEMORY
 UtPod::UtPod(){
+     songs = nullptr;
      memSize = MAX_MEMORY;
 }
 
@@ -17,6 +18,7 @@ UtPod::UtPod(){
 //If the size is greater than MAX_MEMORY or less than or equal to 0,
 //set the size to MAX_MEMORY.
 UtPod::UtPod(int size){
+     songs = nullptr;
      if (size > MAX_MEMORY || size <= 0){
         memSize = MAX_MEMORY;
     }
