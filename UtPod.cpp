@@ -187,4 +187,8 @@ int UtPod::getRemainingMemory(){
     return remainingMem;
 }
 
+UtPod::~UtPod(){
+    //destructor
+}
+
 
