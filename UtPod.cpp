@@ -139,12 +139,24 @@ void UtPod::clearMemory(){
 /* FUNCTION - int getRemainingMemory
  *  returns the amount of memory available for adding new songs
 
-   input parms -
+   input parms - none
 
-   output parms -
+   output parms - returns the remaining memory in the UTPod
 */
 
 int UtPod::getRemainingMemory(){
+    int totalMem = 0;
+    int remainingMem = 0;
+    SongNode *current = songs;
+
+    while (current != nullptr){
+        totalMem = totalMem + current->s.getSize();
+        current = current->next;
+    }
+    
+    remainingMem = memSize - totalMem;
+    return remainingMem;
+}
 
 }
 
