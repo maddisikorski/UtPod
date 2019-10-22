@@ -86,13 +86,19 @@ void UtPod::shuffle(){
  * prints the current list of songs in order from first to last to standard output
  * format - Title, Artist, size in MB (one song per line)
 
-   input parms -
+   input parms - none
 
-   output parms -
+   output parms - prints the Title, Artist, Size of each song in the UTPod
 */
 
 void UtPod::showSongList(){
-
+    SongNode *current = songs;
+    while (current != nullptr){
+        cout << current->s.getTitle() << ","
+        << current->s.getArtist() << ","
+        << current->s.getSize() << endl;
+        current = current->next;
+    }
 }
 
 
