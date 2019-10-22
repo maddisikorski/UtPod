@@ -31,11 +31,11 @@ public:
 
     int getSize() const;
 
-    bool operator==(const Song &b);
+    bool operator==(const Song &s);
 
-    bool operator>(const Song &b);
+    bool operator>(const Song &s);
 
-    bool operator<(const Song &b);
+    bool operator<(const Song &s);
 };
 
 
