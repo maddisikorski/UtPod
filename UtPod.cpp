@@ -33,7 +33,7 @@ UtPod::UtPod(int size){
 
  precondition: s is a valid Song
 
- input parms - reference to a Song
+ input parms - reference to a Song to be added
 
  output parms - returns whether adding song was successful or not
 */
@@ -59,13 +59,39 @@ int UtPod::addSong(Song const &s){
      o returns -1 if nothing is removed
 
 
-   input parms - reference to a Song
+   input parms - reference to a Song to be removed
 
    output parms - returns whether removing song was successful or not
 */
 
 int UtPod::removeSong(Song const &s){
+    SongNode *current = songs;
+    SongNode *prev = nullptr;
 
+    if (songs == nullptr){
+        return NOT_FOUND;
+    }
+    else{
+        //while the node isn't null and isn't equal to song
+        while((current != nullptr) && !(current->s == s)){
+                prev = current;
+                current = current -> next;
+        }
+        //if its the first one in the linked list
+        if (prev == nullptr){
+            songs = current->next;
+            free(current);
+            return SUCCESS;
+        }
+        //if its in the list, free it 
+        else if (current != nullptr) {
+            prev->next = current->next;
+            free(current);
+            return SUCCESS;
+        }
+    }
+    //if not found in the list
+    return NOT_FOUND;
 }
 
 
@@ -73,9 +99,9 @@ int UtPod::removeSong(Song const &s){
  *  shuffles the songs into random order
     o will do nothing if there are less than two songs in the current list
 
-   input parms -
+   input parms - none
 
-   output parms -
+   output parms -none
 */
 
 void UtPod::shuffle(){
@@ -89,7 +115,7 @@ void UtPod::shuffle(){
 
    input parms - none
 
-   output parms - prints the Title, Artist, Size of each song in the UTPod
+   output parms - no output, but prints the Title, Artist, Size of each song in the UTPod
 */
 
 void UtPod::showSongList(){
@@ -107,9 +133,9 @@ void UtPod::showSongList(){
  *  sorts the songs in ascending order
     o will do nothing if there are less than two songs in the current list
 
-   input parms -
+   input parms - none
 
-   output parms -
+   output parms - none
 */
 
 void UtPod::sortSongList(){
