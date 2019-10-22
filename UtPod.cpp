@@ -43,6 +43,7 @@ int UtPod::addSong(Song const &s){
         auto *newNode = new SongNode;
         newNode->s = s;
         newNode->next = songs;
+        songs = newNode;
         return SUCCESS;
     }
     else{
