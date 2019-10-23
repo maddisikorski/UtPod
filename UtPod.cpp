@@ -82,13 +82,13 @@ int UtPod::removeSong(Song const &s){
         //if its the first one in the linked list
         if (prev == nullptr){
             songs = current->next;
-            free(current);
+            delete current;
             return SUCCESS;
         }
         //if its in the list, free it 
         else if (current != nullptr) {
             prev->next = current->next;
-            free(current);
+            delete current;
             return SUCCESS;
         }
     }
@@ -158,7 +158,7 @@ void UtPod::clearMemory(){
     
     while (current != nullptr){
         next = current->next;
-        free(current);
+        delete current;
         current = next;
     }
     songs = nullptr;
