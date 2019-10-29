@@ -15,6 +15,7 @@ private:
     int size;
 
 public:
+
     Song();
 
     Song(string _title, string _artist, int _size);

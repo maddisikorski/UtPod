@@ -45,6 +45,8 @@ int main(int argc, char *argv[])
     cout << "add result = " << result << endl;
 
     t.showSongList();
+    t.shuffle();
+    t.showSongList();
 
     result = t.removeSong(s2);
     cout << "delete result = " << result << endl;
@@ -71,6 +73,42 @@ int main(int argc, char *argv[])
 
     t.showSongList();
     cout << "memory = " << t.getRemainingMemory() << endl;
+
+
+    //SHUFFLE TEST
+
+    UtPod tshuffle;
+
+    Song s6("Beatles", "Hey Jude1", 4);
+    result = tshuffle.addSong(s1);
+    cout << "result = " << result << endl;
+
+    //shouldn't work
+    tshuffle.showSongList();
+    tshuffle.shuffle();
+
+    Song s7("Beatles", "Hey Jude2", 5);
+    result = tshuffle.addSong(s2);
+    cout << "result = " << result << endl;
+
+    Song s8("Beatles", "Hey Jude3", 6);
+    result = tshuffle.addSong(s3);
+    cout << "result = " << result << endl;
+
+    Song s9("Beatles", "Hey Jude4", 7);
+    result = tshuffle.addSong(s4);
+    cout << "result = " << result << endl;
+
+    //should shuffle
+    t.showSongList();
+    tshuffle.shuffle();
+
+    //SORT TEST
+
+    UtPod tsort;
+
+
+
 
 
 }
