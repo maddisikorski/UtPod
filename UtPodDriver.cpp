@@ -1,13 +1,9 @@
 /* utPod_driver.cpp
 Demo Driver for the UtPod.
-
 Roger Priebe
 EE 312 10/16/18
-
 This is a basic driver for the UtPod.
-
 You will want to do more complete testing.
-
 */
 #include <cstdlib>
 #include <iostream>
@@ -55,7 +51,7 @@ int main(int argc, char *argv[])
 
 
 
-   //given
+    //given
 
     result = t.removeSong(s2);
     cout << "delete result = " << result << endl;
@@ -83,7 +79,7 @@ int main(int argc, char *argv[])
     t.showSongList();
     cout << "memory = " << t.getRemainingMemory() << endl;
 
-
+    t.~UtPod();
     //SHUFFLE TEST
 
     UtPod tshuffle;
@@ -116,7 +112,7 @@ int main(int argc, char *argv[])
     tshuffle.shuffle();
     tshuffle.showSongList();
 
-
+    tshuffle.~UtPod();
     //SORT TEST
 
     UtPod tsort;
@@ -187,6 +183,7 @@ int main(int argc, char *argv[])
     cout << "sort by artist, then title, then size " << endl;
     tsort.showSongList();
 
+    tsort.~UtPod();
     //REMOVE TEST
 
     UtPod tremove;
@@ -222,7 +219,7 @@ int main(int argc, char *argv[])
     cout << "result = " << result << endl;
     tremove.showSongList();
 
-
+    tremove.~UtPod();
     //CONSTRUCTORS TEST
 
     //these should all return 512
@@ -241,11 +238,76 @@ int main(int argc, char *argv[])
     //this should return the inputted size
     UtPod tmake4(500);
     cout << "memory = " << tmake4.getRemainingMemory() << endl;
-    
-    //clearMemory & deconstructor test
 
-    //getRemaining memory test
+    //extra test of file with some of the same songs, artists, and sizes
+    UtPod tsimsongs;
 
+    Song sg0("Beatles", "Hey Jude", -4);
+    result = tsimsongs.addSong(sg0);
+    cout << "result = " << result << endl;
+
+    Song sg1("Beatles", "Hey Jude", 5);
+    result = tsimsongs.addSong(sg1);
+
+    cout << "result = " << result << endl;
+
+    tsimsongs.showSongList();
+
+    Song sg2("Beatles", "Hey Jude", 5);
+    result = tsimsongs.addSong(sg2);
+    cout << "result = " << result << endl;
+
+    tsimsongs.showSongList();
+
+    Song sg3("Beatles", "Hey Jude", 5);
+    result = tsimsongs.addSong(sg3);
+    cout << "result = " << result << endl;
+
+    tsimsongs.showSongList();
+
+    Song sg4("Beatles", "Hey Dude", 6);
+    result = tsimsongs.addSong(sg4);
+    cout << "result = " << result << endl;
+
+    tsimsongs.showSongList();
+
+    Song sg5("Britney Spears", "Toxic Extended Dance Edition", 5);
+    result = tsimsongs.addSong(sg5);
+    cout << "add result = " << result << endl;
+    tsimsongs.showSongList();
+
+    result = tsimsongs.removeSong(sg1);
+    cout << "result = " << result << endl;
+
+    tsimsongs.showSongList();
+    tsimsongs.sortSongList();
+    cout << "sort by artist, then title " << endl;
+    tsimsongs.showSongList();
+
+    tsimsongs.shuffle();
+    tsimsongs.showSongList();
+
+    tsimsongs.~UtPod();
+
+    //getRemainingMemory Test
+    UtPod tMem(100);
+    result=tMem.getRemainingMemory();
+    cout << "remaining memory = " << result << endl;
+
+    Song sg6("The Weeknd", "Starboy", 42);
+    result = tMem.addSong(sg6);
+    cout << "result = " << result << endl;
+
+    tMem.showSongList();
+
+    result=tMem.getRemainingMemory();
+    cout << "remaining memory = " << result << endl;
+
+    result = tMem.removeSong(sg6);
+    cout << "result = " << result << endl;
+
+    result=tMem.getRemainingMemory();
+    cout << "remaining memory = " << result << endl;
 
 
 }
