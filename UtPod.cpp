@@ -123,8 +123,14 @@ void UtPod::shuffle(){
         for (int i = 0; i < numSongs * 2; i++) {
             int num1 = (rand() % numSongs);
             int num2 = (rand() % numSongs);
-            SongNode *song1 = songs + num1;
-            SongNode *song2 = songs + num2;
+            SongNode *song1 = songs;
+            SongNode *song2 = songs;
+            for (int i = 0; i < num1; i++){
+                song1 = song1->next;
+            }
+            for (int i = 0; i < num2; i++){
+                song2 = song2->next;
+            }
             //swap them
             Song temp = song2->s;
             song2->s = song1->s;
@@ -169,19 +175,31 @@ void UtPod::sortSongList(){
     SongNode *current = songs;
     SongNode *first = songs;
 
-    while (first != nullptr) {
-        while (current != nullptr) {
-            if (current < smallest) {
-                smallest = current;
-            }
-            current = current->next;
-        }
-        //swap smallest with first
-        //Song temp = smallest;
-        first = first->next;
-        smallest = first;
+    int numSongs = 0;
+    while (current != nullptr){
+        numSongs++;
+        current = current->next;
     }
+    current = songs;
 
+    if (numSongs >= 2) {
+        while (first->next != nullptr) {
+            while (current != nullptr) {
+                if (current->s < smallest->s) {
+                    smallest = current;
+                }
+                current = current->next;
+            }
+            //swap smallest with first
+            Song temp = smallest->s;
+            smallest->s = first->s;
+            first->s = temp;
+            //then iterate to next node
+            first = first->next;
+            current = first;
+            smallest = first;
+        }
+    }
 }
 
 

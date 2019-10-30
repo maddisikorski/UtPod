@@ -18,10 +18,12 @@ using namespace std;
 
 int main(int argc, char *argv[])
 {
+
     UtPod t;
 
     Song s1("Beatles", "Hey Jude1", 4);
     int result = t.addSong(s1);
+    /*
     cout << "result = " << result << endl;
 
     t.showSongList();
@@ -78,6 +80,8 @@ int main(int argc, char *argv[])
     //SHUFFLE TEST
 
     UtPod tshuffle;
+    tshuffle.showSongList();
+    tshuffle.shuffle();
 
     Song s6("Beatles", "Hey Jude1", 4);
     result = tshuffle.addSong(s1);
@@ -86,26 +90,95 @@ int main(int argc, char *argv[])
     //shouldn't work
     tshuffle.showSongList();
     tshuffle.shuffle();
+    tshuffle.showSongList();
 
     Song s7("Beatles", "Hey Jude2", 5);
-    result = tshuffle.addSong(s2);
+    result = tshuffle.addSong(s7);
     cout << "result = " << result << endl;
 
     Song s8("Beatles", "Hey Jude3", 6);
-    result = tshuffle.addSong(s3);
+    result = tshuffle.addSong(s8);
     cout << "result = " << result << endl;
 
     Song s9("Beatles", "Hey Jude4", 7);
-    result = tshuffle.addSong(s4);
+    result = tshuffle.addSong(s9);
     cout << "result = " << result << endl;
 
     //should shuffle
-    t.showSongList();
+    tshuffle.showSongList();
     tshuffle.shuffle();
+    tshuffle.showSongList();
 
+     */
     //SORT TEST
 
     UtPod tsort;
+    tsort.showSongList();
+    tsort.sortSongList();
+
+    Song s10("Beatles", "Hey Jude1", 4);
+    result = tsort.addSong(s10);
+    cout << "result = " << result << endl;
+
+    //shouldn't sort
+    cout << "no sort " << endl;
+    tsort.showSongList();
+    tsort.sortSongList();
+    tsort.showSongList();
+
+    Song s11("Beatles", "Hey Jude2", 5);
+    result = tsort.addSong(s11);
+    cout << "result = " << result << endl;
+
+    Song s12("Beatles", "Hey Jude3", 6);
+    result = tsort.addSong(s12);
+    cout << "result = " << result << endl;
+
+    Song s13("Beatles", "Hey Jude4", 7);
+    result = tsort.addSong(s13);
+    cout << "result = " << result << endl;
+
+    //should sort by title
+    tsort.showSongList();
+    tsort.sortSongList();
+    cout << "sort by artist, then title " << endl;
+    tsort.showSongList();
+
+    //next test to sort by artist
+    Song s14("ABeatles", "Hey Jude2", 5);
+    result = tsort.addSong(s14);
+    cout << "result = " << result << endl;
+
+    Song s15("Beatles", "Hey Jude3", 6);
+    result = tsort.addSong(s15);
+    cout << "result = " << result << endl;
+
+    Song s16("CBeatles", "Hey Jude4", 7);
+    result = tsort.addSong(s16);
+    cout << "result = " << result << endl;
+
+    tsort.showSongList();
+    tsort.sortSongList();
+    cout << "sort by artist, then title " << endl;
+    tsort.showSongList();
+
+    //sorts by size
+    Song s17("Beatles", "Hey Jude", 5);
+    result = tsort.addSong(s17);
+    cout << "result = " << result << endl;
+
+    Song s18("Beatles", "Hey Jude", 6);
+    result = tsort.addSong(s18);
+    cout << "result = " << result << endl;
+
+    Song s19("Beatles", "Hey Jude", 7);
+    result = tsort.addSong(s19);
+    cout << "result = " << result << endl;
+
+    tsort.showSongList();
+    tsort.sortSongList();
+    cout << "sort by artist, then title, then size " << endl;
+    tsort.showSongList();
 
 
 

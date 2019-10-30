@@ -6,15 +6,15 @@
 using namespace std;
 
 Song::Song(){
-    title = "";
     artist = "";
+    title = "";
     size = 0;
 }
 
 
-Song::Song(string _title, string _artist, int _size){
-    title = _title;
+Song::Song(string _artist, string _title, int _size){
     artist = _artist;
+    title = _title;
     size = _size;
 }
 

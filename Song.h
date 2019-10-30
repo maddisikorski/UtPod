@@ -18,7 +18,7 @@ public:
 
     Song();
 
-    Song(string _title, string _artist, int _size);
+    Song(string _artist, string _title, int _size);
 
     void setTitle(string _title);
 
