@@ -19,11 +19,12 @@ using namespace std;
 int main(int argc, char *argv[])
 {
 
-    UtPod t;
+    //ADDSONG TEST
+    UtPod t(20);
 
-    Song s1("Beatles", "Hey Jude1", 4);
+    Song s1("Beatles", "Hey Jude1", 5);
     int result = t.addSong(s1);
-    /*
+
     cout << "result = " << result << endl;
 
     t.showSongList();
@@ -34,21 +35,27 @@ int main(int argc, char *argv[])
 
     t.showSongList();
 
-    Song s3("Beatles", "Hey Jude3", 6);
+    Song s3("Beatles", "Hey Jude3", 5);
     result = t.addSong(s3);
     cout << "result = " << result << endl;
 
-    Song s4("Beatles", "Hey Jude4", 7);
+    t.showSongList();
+
+    Song s4("Beatles", "Hey Jude4", 6);
     result = t.addSong(s4);
     cout << "result = " << result << endl;
 
-    Song s5("Beatles", "Hey Jude5", 241);
+    t.showSongList();
+
+    Song s5("Beatles", "Hey Jude5", 5);
     result = t.addSong(s5);
     cout << "add result = " << result << endl;
 
     t.showSongList();
-    t.shuffle();
-    t.showSongList();
+
+
+
+   //given
 
     result = t.removeSong(s2);
     cout << "delete result = " << result << endl;
@@ -109,7 +116,7 @@ int main(int argc, char *argv[])
     tshuffle.shuffle();
     tshuffle.showSongList();
 
-     */
+
     //SORT TEST
 
     UtPod tsort;
@@ -180,7 +187,64 @@ int main(int argc, char *argv[])
     cout << "sort by artist, then title, then size " << endl;
     tsort.showSongList();
 
+    //REMOVE TEST
 
+    UtPod tremove;
+
+    result = tremove.removeSong(s19);
+    cout << "result = " << result << endl;
+
+    result = tremove.addSong(s18);
+    result = tremove.addSong(s17);
+    result = tremove.addSong(s18);
+    result = tremove.addSong(s17);
+    result = tremove.addSong(s19);
+
+    tremove.showSongList();
+    result = tremove.removeSong(s16);
+    cout << "result = " << result << endl;
+    tremove.showSongList();
+    result = tremove.removeSong(s18);
+    cout << "result = " << result << endl;
+    tremove.showSongList();
+
+    result = tremove.removeSong(s18);
+    cout << "result = " << result << endl;
+    tremove.showSongList();
+    result = tremove.removeSong(s17);
+    cout << "result = " << result << endl;
+    result = tremove.removeSong(s17);
+    cout << "result = " << result << endl;
+    tremove.showSongList();
+    result = tremove.removeSong(s19);
+    cout << "result = " << result << endl;
+    result = tremove.removeSong(s19);
+    cout << "result = " << result << endl;
+    tremove.showSongList();
+
+
+    //CONSTRUCTORS TEST
+
+    //these should all return 512
+    UtPod tdefault;
+    cout << "memory = " << tdefault.getRemainingMemory() << endl;
+
+    UtPod tmake1(-5);
+    cout << "memory = " << tmake1.getRemainingMemory() << endl;
+
+    UtPod tmake2(0);
+    cout << "memory = " << tmake2.getRemainingMemory() << endl;
+
+    UtPod tmake3(513);
+    cout << "memory = " << tmake3.getRemainingMemory() << endl;
+
+    //this should return the inputted size
+    UtPod tmake4(500);
+    cout << "memory = " << tmake4.getRemainingMemory() << endl;
+    
+    //clearMemory & deconstructor test
+
+    //getRemaining memory test
 
 
 
